@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Language Icons with Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .main-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 167px;
+            margin: 0 auto;
+            top: -50px;
+            background: #43afe5;
+            border-radius: 32px;
+            text-align: center;
+        }
+
+        .main-container h1 {
+            margin: 0;
+            padding-top: 90px;
+            color: rgb(250, 253, 253);
+        }
+
+        .search-container {
+            position: relative;
+            left: 3px;
+            top: -50px;
+            text-align: left;
+            margin: 4px;
+        }
+
+        .search-container input {
+            padding: 10px;
+            width: 335px;
+            border: 1px solid #43afe5;
+            border-radius: 5px;
+        }
+
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+            margin-top: -40px;
+        }
+
+        .box {
+            width: 110px; /* Adjusted size */
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            font-size: 36px; /* Adjust icon size */
+            color: #43afe5;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .box a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .box i {
+            font-size: 40px; /* Icon size */
+            margin-bottom: 5px;
+        }
+
+        .box span {
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+       <h1>Welcome To Kobciye</h1>
+    </div>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search..." onkeyup="filterLanguages()">
+    </div>
+    <div class="box-container" id="language-boxes">
+        <div class="box" data-language="one">
+            <a href="semisterone.html">
+                <i class="fas fa-book"></i>
+                <span>Semester One</span>
+            </a>
+        </div>
+        <div class="box" data-language="two">
+            <a href="semistertwo.html">
+                <i class="fas fa-laptop-code"></i>
+                <span>Semester Two</span>
+            </a>
+        </div>
+        <div class="box" data-language="three">
+            <a href=".html">
+                <i class="fas fa-pen"></i>
+                <span>Semester Three</span>
+            </a>
+        </div>
+        <div class="box" data-language="four">
+            <a href=".html">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Semester Four</span>
+            </a>
+        </div>
+        <div class="box" data-language="five">
+            <a href="semisterfive.html">
+                <i class="fas fa-chart-pie"></i>
+                <span>Semester Five</span>
+            </a>
+        </div>
+        <div class="box" data-language="six">
+            <a href=".html">
+                <i class="fas fa-users"></i>
+                <span>Semester Six</span>
+            </a>
+        </div>
+        <div class="box" data-language="seven">
+            <a href=".html">
+                <i class="fas fa-code"></i>
+                <span>Semester Seven</span>
+            </a>
+        </div>
+        <div class="box" data-language="eight">
+            <a href=".html">
+                <i class="fas fa-globe"></i>
+                <span>Semester Eight</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function filterLanguages() {
+            const input = document.getElementById('search').value.toLowerCase();
+            const boxes = document.querySelectorAll('.box');
+
+            boxes.forEach(box => {
+                const language = box.getAttribute('data-language').toLowerCase();
+                if (language.includes(input)) {
+                    box.style.display = ''; 
+                } else {
+                    box.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+    <title>Chapters of SAD</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .main-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 167px;
+            margin: 0 auto;
+            top: -50px;
+            background: #43afe5;
+            border-radius: 32px;
+        }
+
+        .search-container {
+            position: relative;
+            left: 3px;
+            top: -50px;
+            text-align: left;
+            margin: 4px;
+        }
+
+        .search-container input {
+            padding: 10px;
+            width: 335px;
+            border: 1px solid #43afe5;
+            border-radius: 5px;
+        }
+
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+            margin-top: -40px;
+        }
+
+        .box {
+            width: 137px;
+            height: 135px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+          
+            color: white;
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        .box i {
+            font-size: 50px; /* Adjust icon size */
+            margin-bottom: 10px; /* Space below the icon */
+        }
+
+        .main-container h1 {
+            margin: 0;
+            padding-top: 106px;
+            text-align: center;
+            color: rgb(250, 253, 253);
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 60px;
+            left: 3px;
+            background-color: #43afe5;
+            color: #000000;
+            border: 1px solid #43afe5;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .back-btn:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <button onclick="goBack()" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h1>Chapters of SAD</h1>
+    </div>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search for a chapter..." onkeyup="filterLanguages()">
+    </div>
+    <div class="box-container" id="language-boxes">
+        <div class="box" data-language="chapter one">
+            <a href="sadchapter1.pptx">
+                <i class="fa-solid fa-project-diagram"></i> <!-- System Design Icon -->
+                <p>Chapter One</p>
+            </a>
+        </div>
+        <div class="box" data-language="chapter two">
+            <a href="sadchapter2.pptx">
+                <i class="fa-solid fa-cogs"></i> <!-- System Analysis Icon -->
+                <p>Chapter Two</p>
+            </a>
+        </div>
+        <div class="box" data-language="chapter three">
+            <a href="sadchapter3.pptx">
+                <i class="fa-solid fa-project-diagram"></i> <!-- System Design Icon -->
+                <p>Chapter Three</p>
+            </a>
+        </div>
+        <div class="box" data-language="chapter four">
+            <a href="sadchapter4.pptx">
+                <i class="fa-solid fa-cogs"></i> <!-- System Analysis Icon -->
+                <p>Chapter Four</p>
+            </a>
+        </div>
+        <div class="box" data-language="chapter five">
+            <a href="sadchapter5.pptx">
+                <i class="fa-solid fa-project-diagram"></i> <!-- System Design Icon -->
+                <p>Chapter Five</p>
+            </a>
+        </div>
+        <div class="box" data-language="chapter sex">
+            <a href="sadchapter6.pptx">
+                <i class="fa-solid fa-cogs"></i> <!-- System Analysis Icon -->
+                <p>Chapter Six</p>
+            </a>
+        </div>
+        <div class="box" data-language="chapter seven">
+            <a href="sadchapter7.pptx">
+                <i class="fa-solid fa-project-diagram"></i> <!-- System Design Icon -->
+                <p>Chapter Seven</p>
+            </a>
+        </div>
+        <div class="box" data-language="chapter eight">
+            <a href="sadchapter8.pptx">
+                <i class="fa-solid fa-cogs"></i> <!-- System Analysis Icon -->
+                <p>Chapter Eight</p>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function filterLanguages() {
+            const input = document.getElementById('search').value.toLowerCase();
+            const boxes = document.querySelectorAll('.box');
+
+            boxes.forEach(box => {
+                const language = box.getAttribute('data-language').toLowerCase();
+                if (language.includes(input)) {
+                    box.style.display = ''; // Show box
+                } else {
+                    box.style.display = 'none'; // Hide box
+                }
+            });
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

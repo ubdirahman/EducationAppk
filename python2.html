@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+    <title>Python Chapters</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .main-container {
+            position: relative;
+            width: 100%;
+            height: 167px;
+            margin: 0 auto;
+            top: -50px;
+            background: #43afe5;
+            border-radius: 32px;
+        }
+
+        .search-container {
+            position: relative;
+            left: 3px;
+            top: -50px;
+            text-align: left;
+            margin: 4px;
+        }
+
+        .search-container input {
+            padding: 10px;
+            width: 335px;
+            border: 1px solid #43afe5;
+            border-radius: 5px;
+        }
+
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+            margin-top: -40px;
+        }
+
+        .box {
+            width: 180px;
+            height: 170px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin: 10px;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .box:hover {
+            background-color: #3a0f0f;
+        }
+
+        .box i {
+            font-size: 50px;
+            color: rgb(0, 0, 0);
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+
+        .main-container h1 {
+            margin: 0;
+            padding-top: 106px;
+            text-align: center;
+            color: rgb(250, 253, 253);
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 60px;
+            left: 3px;
+            background-color: #43afe5;
+            color: #000000;
+            border: 1px solid #43afe5;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .back-btn:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <button onclick="goBack()" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h1>Chapters of Python</h1>
+    </div>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search for a chapter..." onkeyup="filterLanguages()">
+    </div>
+    <div class="box-container" id="language-boxes">
+        <a href="Chapter 5_ Introduction to NumPy — Python Programming for Data Science.pdf" class="box" data-language="chapter five">
+            <i class="fab fa-python icon"></i>
+            <p>Chapter Five</p>
+        </a>
+        <a href="Chapter 6_ NumPy Implementation Details — Python Programming for Data Science.pdf" class="box" data-language="chapter six">
+            <i class="fab fa-python icon"></i>
+            <p>Chapter Six</p>
+        </a>
+        <a href="Chapter 7_ Introduction to Pandas — Python Programming for Data Science.pdf" class="box" data-language="chapter seven">
+            <i class="fab fa-python icon"></i>
+            <p>Chapter Seven</p>
+        </a>
+        <a href="Chapter 8_ Basic Data Wrangling With Pandas — Python Programming for Data Science.pdf" class="box" data-language="chapter eight">
+            <i class="fab fa-python icon"></i>
+            <p>Chapter Eight</p>
+        </a>
+    </div>
+
+    <script>
+        function filterLanguages() {
+            const input = document.getElementById('search').value.toLowerCase();
+            const boxes = document.querySelectorAll('.box');
+
+            boxes.forEach(box => {
+                const language = box.getAttribute('data-language').toLowerCase();
+                if (language.includes(input)) {
+                    box.style.display = ''; // Show box
+                } else {
+                    box.style.display = 'none'; // Hide box
+                }
+            });
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
